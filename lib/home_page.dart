@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
+  //int _counter = 0;
 
   /*void _incrementCounter() {
     setState(() {
@@ -31,7 +31,9 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: PageView(
           children: <Widget>[
-            ContactPage(),
+            ContactPage(
+              names: ["Meshia", "Mitch", "Moby", "Monica", "Melvin"]
+            ),
             CameraPage(),
           ]
         )
