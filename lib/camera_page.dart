@@ -4,14 +4,6 @@ import 'package:camera/camera.dart';
 
 List<CameraDescription> cameras;
 
-
-
-Future<void> getCameras() async {
-  print("3");
-  cameras = await availableCameras();
-  print("4");
-}
-
 class CameraPage extends StatefulWidget {
   CameraPage({Key key}) : super(key: key);
 
