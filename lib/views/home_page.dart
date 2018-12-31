@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:chat_snap/contact_page.dart';
-import 'package:chat_snap/camera_page.dart';
+import 'package:chat_snap/views/contact_page.dart';
+import 'package:chat_snap/views/camera_page.dart';
+import 'package:chat_snap/services/hello_service.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -12,13 +13,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  //int _counter = 0;
 
-  /*void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }*/
+  void _sayHello() {
+    print("helloooo");
+    HelloService.SayHello();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +36,11 @@ class _HomePageState extends State<HomePage> {
             CameraPage(),
           ]
         )
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _sayHello,
+        tooltip: 'say hello',
+        child: Icon(Icons.add),
       ),
     );
   }

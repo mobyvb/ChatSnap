@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chat_snap/home_page.dart';
+import 'package:chat_snap/views/home_page.dart';
 
 void main() => runApp(ChatSnap());
 
