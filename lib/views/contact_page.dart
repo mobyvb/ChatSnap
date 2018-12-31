@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:chat_snap/services/hello_service.dart';
 
 class ContactPage extends StatefulWidget {
   ContactPage({Key key, this.names}) : super(key: key);
@@ -10,6 +11,7 @@ class ContactPage extends StatefulWidget {
 }
 
 class _ContactPageState extends State<ContactPage> {
+  String res;
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +23,21 @@ class _ContactPageState extends State<ContactPage> {
             horizontal: 16.0,
             vertical: 4.0,
           ),
-          child: Text(
-              widget.names[index]
+          child: FlatButton(
+              onPressed: () async => _sayHello(),
+              child: Text(widget.names[index])
           ),
         );
       }
     );
+  }
+
+  Future<void> _sayHello() async {
+    var hello = await HelloService.SayHello();
+    print("response");
+    print(hello.response);
+    setState(() {
+      res = hello.response;
+    });
   }
 }
