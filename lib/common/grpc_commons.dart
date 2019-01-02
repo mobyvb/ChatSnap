@@ -8,7 +8,7 @@ class GrpcClientSingleton {
   factory GrpcClientSingleton() => _singleton;
 
   GrpcClientSingleton._internal() {
-    client = ClientChannel("0.0.0.0", // Your IP here, localhost might not work.
+    client = ClientChannel("192.168.0.15", // Your IP here, localhost might not work.
         port: 3000,
         options: ChannelOptions(
           //TODO: Change to secure with server certificates

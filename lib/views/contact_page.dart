@@ -33,8 +33,7 @@ class _ContactPageState extends State<ContactPage> {
   }
 
   Future<void> _sayHello() async {
-    var hello = await HelloService.SayHello();
-    print("response");
+    var hello = await HelloService.sayHello();
     print(hello.response);
     setState(() {
       res = hello.response;
