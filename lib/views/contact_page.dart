@@ -12,6 +12,7 @@ class ContactPage extends StatefulWidget {
 
 class _ContactPageState extends State<ContactPage> {
   String res;
+  Map<int, String> responses = new Map();
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +25,19 @@ class _ContactPageState extends State<ContactPage> {
             vertical: 4.0,
           ),
           child: FlatButton(
-              onPressed: () async => _sayHello(),
-              child: Text(widget.names[index])
+              onPressed: () async => _sayHello(index),
+              child: Text(responses[index] != null ? responses[index] : widget.names[index])
           ),
         );
       }
     );
   }
 
-  Future<void> _sayHello() async {
+  Future<void> _sayHello(int i) async {
     var hello = await HelloService.sayHello();
     print(hello.response);
     setState(() {
+      responses[i] = hello.response;
       res = hello.response;
     });
   }
